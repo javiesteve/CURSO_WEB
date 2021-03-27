@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <!-- <link rel="styleshnombret" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+
+    
+<!-- ________________________ javascript____________________________ -->
+    
+<script type="text/javascript"> 
+
+// Vaciar una caja input al pulsar dentro con "onfocus"
+function vaciar ( campo){
+	campo.value ="";
+}
+
+// al salir de un campo clickando fuera (onblur) ejecutamos esta acción:
+function verificarCampo( campo){ 
+
+	if(campo.value == ""){
+		campo.focus(); // situar el cursor dentro del campo 
+		alert("El campo "+ campo.name +" no debe estar vacío");
+		return false;
+	}else{
+		return true;
+	}
+}
+
+
+function verificarFormulario(){
+    nombre = document.formulario_01.nombre.value;
+    edad = document.formulario_01.edad.value;
+    var mensaje= "";
+    //var mensaje = nom + " " + ed;
+    //alert(mensaje);
+
+    if(nombre == ""){
+        mensaje = mensaje + "Ingresa tu nombre\n";
+    };
+    
+    if(edad == ""){
+        mensaje = mensaje + "Ingresa tu edad";
+    };
+
+    if(mensaje != ""){
+        alert (mensaje);
+        event.preventDefault(); // bloquea el "submit"
+    }
+}
+
+
+
+function pintar(objeto, color){
+	switch(color){
+		case 'rojo': objeto.style.color = "#ff0000";
+		break;
+		case 'verde': objeto.style.color = "#00ff00";
+		              objeto.style.backgroundColor ="#000000";
+
+		//objeto.style.display = "none"; en este caso no funciona onmouseout porque display none implica que desaparezca
+		break;
+		//default : objeto.style.color = "#0000ff";
+		//break;
+	}	
+}
+
+
+function mover(objeto){
+	//pintar(objeto, "rojo");
+	objeto.style.position = "relative";
+	//objeto.style.top = "50px";
+	objeto.style.left = "120px";
+	
+}
+
+
+function estadoOriginal(objeto){
+	objeto.style.color= "";
+    objeto.style.backgroundColor ="";
+    objeto.style.position = "";
+	//objeto.style.top = "";
+	objeto.style.left = "";
+}
+
+
+
+
+
+
+</script>
+
+
+<!-- ____________________ Final javascript _________________________ -->
+
+<!-- ___________________________ HTML ______________________________ -->
+
+
+
+<h2>Formulario de inscripción:</h2>
+<!-- Formulario tipo submit -->
+<form name="formulario_01" action="imagenes/google2.jpg" method="post" onsubmit="verificarFormulario()">
+<!-- Con action indicamos una dirección web destino -->
+<!-- Con onSubmit llamamos a alguna función previa -->
+
+	Ingrese su nombre:   <input type="text" name="nombre" onfocus="vaciar(this)" onblur="verificarCampo(this)"/><br/><br/>
+
+    Ingrese su edad:     <input type="text" name="edad" onfocus="vaciar(this)" onblur="verificarCampo(this)"/><br/><br/>
+    <!-- Onfocus: Al clickar dentro  -   onblur: al clickar fuera después-->
+    <!-- Al enviar el parámetro "this" le estamos enviando el "name" -->
+
+    <input type="submit" value="Enviar"/> 
+
+</form><br/><br/><br/>
+
+<h2 onmouseover="pintar(this, 'verde')"  onmouseout="estadoOriginal(this)">Pasa el ratón por encima mío</h2><br/><br/><br/>    
+
+<h2 onmouseover="mover(this, 'verde')"  onmouseout="estadoOriginal(this)">Por encima mío también!!!</h2><br/><br/><br/>  
+
+
+</body>
+</html>

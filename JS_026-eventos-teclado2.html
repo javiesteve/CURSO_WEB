@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comienzos </title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+
+
+
+
+   
+<!-- ________________________ javascript____________________________ -->
+    
+<script type="text/javascript"> 
+
+
+ 
+ 
+function eventoKeyPress(event) {
+
+    var caracter = String.fromCharCode(event.charCode);
+
+    // Código que hace lo mismo (pero más complejo):
+	// var codigo = document.layers ? event.which : document.all ? event.codigo : event.codigo;
+	// var evento = event || window.event;
+	// var caracter = String.fromCharCode(evento.charCode) || evento.codigo;
+  
+  
+    if(event.charCode==13){  //Si se pulsa enter da directamente el resultado
+        alert("Tipo de evento: " + event.type + "\n charCode: " + event.charCode + "\n La tecla pulsada es: ENTER");
+    }else{  
+        alert("Tipo de evento: " + event.type + "\n charCode: " + event.charCode + "\n El carácter pulsado es: " + caracter);
+    }
+}
+
+// Escribe la palabra ESPAÑA
+document.write(String.fromCharCode(69,83,80,65,209,65));
+
+
+
+
+document.onkeypress = eventoKeyPress;
+
+
+</script>
+
+<!-- ____________________ Final javascript _________________________ -->
+
+</head>
+
+<!-- ___________________________ HTML ______________________________ -->
+
+
+<body>
+
+<p> Código Javascript con el que se ha escrito la palabra ESPAÑA:<br/>document.write(String.fromCharCode(69,83,80,65,209,65));</p>
+
+<h3>Presiona una tecla, o combinación de teclas (Shift + Tecla)<br/>
+Sólo caracteres. No teclas F1.. F12; Tab; ALT; Ctrl; ...<br> para conocer su "charCode"</h3>  
+
+    
+</body>
+</html>

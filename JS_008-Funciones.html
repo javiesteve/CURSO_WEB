@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comienzos </title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+
+    <!-- se define una función y después se ejecuta -->
+    
+    <script type="text/javascript">  
+
+        function sumar(){ // definición de la función
+            var a = 5;
+            var b = 6;
+            var suma = a+b;            
+            document.write(suma + "<br/>");
+        }
+
+        sumar(); // ejecución de la función
+
+        // Resultado:   11
+        
+
+
+
+
+
+        // A continuación una función con parámetros a y b:
+        function sumarGenerica(a, b){        
+            var suma = a+b;            
+            document.write( suma + "<br/>");
+        }
+        
+        sumarGenerica(4,2); // indicamos valores a y b
+        // Resultado: 6
+
+
+
+
+        // Otra for a de declarar la misma función:
+        sumarGenerica2 = (a, b) => {
+            var suma = a+b; 
+            document.write( suma + "<br/>");
+        }
+
+        sumarGenerica2(8,2); // indicamos valores a y b
+
+        // Resultado: 10
+        // La gente usa mucho las funciones flecha.. ¿?
+        
+
+
+
+
+
+        // Ahora introducimos los valores a y b mediante prompts (pero un número introducido por éste método es un 'string' o cadena de texto)
+        valor1=prompt("Ingrese valor 1" , "");
+        valor2=prompt("Ingrese valor 2" , "");
+        
+        // con parseInt lo convertimos en número entero:
+        valor3=parseInt(valor1);
+        valor4=parseInt(valor2);
+        // Con 'parseFloat' lo convertimos en número decimal: 
+        valor5=parseFloat(valor1);
+        valor6=parseFloat(valor2);
+        
+        // Llamamos a la función 3 veces:
+        sumarGenerica (valor1, valor2); // Concatena los números como si fueran texto
+        sumarGenerica (valor3, valor4); // Suma los valores enteros
+        sumarGenerica2 (valor5, valor6);// Suma valores decimales
+
+        // Resultado (ingresando los valores 5.2 y 6.2):
+        //  5.26.2
+        //  11
+        //  11.4
+    
+    
+    
+
+    </script>
+
+    
+</body>
+</html>

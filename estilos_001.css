@@ -1,0 +1,113 @@
+ *{
+    /* margin: 0; */
+} 
+
+/*Si no se establecen márgenes con valor "cero" estos toman un valor por defecto (left:8px top:37px)*/
+
+
+/*
+p {
+    
+    background: #da0303;
+    color: #fff;
+    float: left;  
+    
+    El parrafo flota, se coloca en posición (left:8px,top:53px), haciendo que el contenido del resto la página suba por debajo de el.
+
+    Como el párrafo tiene un margen superior e inferior de 16px (37px + 16px = 53px) queda claro que el margen top inicial es 37px
+
+    El párrafo tiene una altura height: 18px.
+    
+    hay un lío de márgenes por defecto. Lo suyo es colocar el margin:0px para todo el contenido de la página al principio del código CSS y luego asignar a cada cosa el margen deseado.
+
+}
+
+
+
+.parrafo1{
+
+    background: #da0303;
+    color: #fff;
+    position: relative;
+    top: -53px;
+
+}
+
+.parrafo2{
+
+    position: relative;
+    top: -35px;
+}
+*/
+
+div{
+    /* margin: -37px 0 0 -8px; */
+    width: 100px;
+    height: 100px;
+    background: #4a88f4;
+    color: #fff;
+    font-size: 30px;
+
+
+    /* border: .1px solid black; 
+    No sé porqué el borde le quita los márgenes top y bottom que por defecto tienen los div
+    */
+
+
+}
+
+.caja1{
+    background: #0f7718;
+}
+
+.caja3{
+    background: #884107;
+}
+
+.caja4{
+    background: #770f26;
+}
+
+.caja5{
+    background: #9e449a;
+}
+
+.caja2{
+    
+    /* 
+    --------------------------   Primera opción ----------------------
+    
+    Primera opcion (relative). La caja 2 se desplaza y las demás no se mueven de su sitio. Pero se desplaza desde la posición que ocupaba, no desde el punto 0,0 de la página.
+
+    Nota: si colocamos unicamente el parametro top ="-38px" la caja 2 ocupa exactamente la misma posición que la caja 1 (la caja 1 queda tapada por la caja 2). Eso es porque el margen por defecto (si no se ponen a cero al principio del código CSS) entre cajas es de 38px (19px "top y bottom" de cada div)
+
+    
+
+    position: relative;
+
+    bottom: 100px;
+    left: 200px;
+
+    Es absurdo poner valores "right y left" a la vez, o "top y bottom" a la vez (pon la resta de los dos y deja el correspondiente al resultado)
+    */
+
+
+    /* 
+    --------------------------   Segunda opción ----------------------
+    
+    Segunda opcion (absolute). La caja 2 se desplaza 200px a la derecha y las demás no se mueven de su sitio*/
+    
+    /* position: absolute;
+    top: 37px;
+    left: 8px; */
+
+    /* Al establecer posicion absoluta la caja se despaza hacia arriba, y si no hay ningún parametro (top, left, bottom, right) se para al chocar con la caja 1. Todas las demás se desplazan hacia arriba ocupando la caja 3 la posición que ocupaba la caja 2
+    Lo curioso es que el parrafo de dentro del div baja el margen top que hay por defecto (37px)
+
+    Nota: si colocamos los parametros top ="37px" y left="8px" todas las cajas se desplazan hacia arriba y la caja 2 ocupa exactamente la misma posición que la caja 1 (la caja 1 queda tapada por la caja 2)
+    */
+
+
+
+
+}

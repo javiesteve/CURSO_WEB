@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comienzos </title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+
+
+
+
+   
+<!-- ________________________ javascript____________________________ -->
+    
+<script type="text/javascript"> 
+
+
+ 
+document.onkeypress = muestraInformacion;
+ 
+function muestraInformacion(event) {
+ 
+	var mensaje =     
+    "<h3>onkeypress:</h3>" +
+    "Tipo de evento: " + event.type + "<br>" +
+ /* "Propiedad keyCode: " + event.keyCode + "<br>" +*/
+	"Propiedad charCode: " + event.charCode + "<br>" +
+	"Carácter pulsado: " + String.fromCharCode(event.charCode);
+				
+	document.write(mensaje);				
+}
+// El código "charCode" es diferente al "keyCode"
+// "charCode" se obtiene con el evento "onkeypress"
+// "keyCode" se obtiene con el evento "onKeyDown"
+
+
+// "charCode" es el código universal en cualquier teclado
+// "keyCode" es el código del teclado inglés. En el teclado español hay caracteres que no corresponden a la tecla pulsada
+
+
+
+function test(event){
+    
+    
+    switch (event.keyCode){
+
+        case 8: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Backspace (borrar)");
+        break;
+        case 9: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Tabulador");
+        break;
+        case 13: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Enter");
+        break;
+        case 16: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Shift");
+        break;
+        case 17: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Control");
+        break;
+        case 18: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Alt");
+        break;
+        case 19: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Pause/Break");
+        break;
+        case 20: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Bloq. Mayúsculas");
+        break;
+        case 27: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Escape");
+        break;
+        case 32: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Espacio");
+        break;
+        case 33: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Pag. Arriba");
+        break;
+        case 34: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Pag. Abajo");
+        break;
+        case 35: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - End");
+        break;
+        case 36: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Home");
+        break;
+        case 37: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Flecha Izquierda");
+        break;
+        case 38: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Flecha arriba.");
+        break;
+        case 39: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Flecha Derecha");
+        break;
+        case 40: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Flecha Abajo");
+        break;
+        case 44: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Imprimir Pantalla");
+        break;
+        case 45: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Insert");
+        break;
+        case 46: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Suprimir");
+        break;
+        case 48: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Número: 0");
+        break;
+        case 49: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Número: 1");
+        break;
+        case 50: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Número: 2");
+        break;
+        case 51: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Número: 3");
+        break;
+        case 52: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Número: 4");
+        break;
+        case 53: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Número: 5");
+        break;
+        case 54: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Número: 6");
+        break;
+        case 55: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Número: 7");
+        break;
+        case 56: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Número: 8");
+        break;
+        case 57: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Número: 9");
+        break;
+        case 65: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: A");
+        break;
+        case 66: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: B");
+        break;
+        case 67: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: C");
+        break;
+        case 68: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: D");
+        break;
+        case 69: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: E");
+        break;
+        case 70: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: F");
+        break;
+        case 71: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: G");
+        break;
+        case 72: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: H");
+        break;
+        case 73: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: I");
+        break;
+        case 74: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: J");
+        break;
+        case 75: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: H");
+        break;
+        case 76: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: L");
+        break;
+        case 77: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: M");
+        break;
+        case 78: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: N");
+        break;
+        // La tecla Ñ no dispone de código
+        case 79: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: O");
+        break;
+        case 80: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: P");
+        break;
+        case 81: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: Q");
+        break;
+        case 82: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: R");
+        break;
+        case 83: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: S");
+        break;
+        case 84: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: T");
+        break;
+        case 85: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: U");
+        break;
+        case 86: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: V");
+        break;
+        case 87: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: W");
+        break;
+        case 88: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: X");
+        break;
+        case 89: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: Y");
+        break;
+        case 90: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra: Z");
+        break;
+        case 91: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Ventana Atrás");
+        break;
+        case 92: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Ventana Adelante");
+        break;
+        case 93: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Select");
+        break;
+        case 96: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Numpad: 0");
+        break;
+        case 97: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Numpad: 1");
+        break;
+        case 98: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Numpad: 2");
+        break;
+        case 99: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Numpad: 3");
+        break;
+        case 100: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Numpad: 4");
+        break;
+        case 101: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Numpad: 5");
+        break;
+        case 102: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Numpad: 6");
+        break;
+        case 103: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Numpad: 7");
+        break;
+        case 104: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Numpad: 8");
+        break;
+        case 105: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Numpad: 9");
+        break;
+        case 106: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Multiply");
+        break;
+        case 107: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Add");
+        break;
+        case 109: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Substract");
+        break;
+        case 110: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Punto decimal");
+        break;
+        case 111: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Dividir");
+        break;
+        case 112: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Función: F1");
+        break;
+        case 113: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Función: F2");
+        break;
+        case 114: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Función: F3");
+        break;
+        case 115: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Función: F4");
+        break;
+        case 116: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Función: F5");
+        break;
+        case 117: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Función: F6");
+        break;
+        case 118: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Función: F7");
+        break;
+        case 119: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Función: F8");
+        break;
+        case 120: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Función: F9");
+        break;
+        case 121: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Función: F10");
+        break;
+        case 122: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Función: F11");
+        break;
+        case 123: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Función: F12");
+        break;
+        case 144: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Bloqueo Numeros");
+        break;
+        case 145: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Bloqueo Scroll");
+        break;
+        case 182: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - My Computer");
+        break;
+        case 183: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - My Calculator");
+        break;
+        case 186: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Semi-Colon (acento invertido)");
+        break;
+        case 187: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Signo Igual \n (Sumar en teclado español)");
+        break;
+        case 188: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Coma");
+        break;
+        case 189: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - guión (signo restar)");
+        break;
+        case 190: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Periodo (punto)");
+        break;
+        case 191: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Forward Slash \n (cerrar llave en teclado español)");
+        break;
+        case 192: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Letra Ñ \n (Teclado español)");
+        break;
+        case 219: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Abrir paréntesis \n (comilla simple en teclado español)");
+        break;
+        case 220: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Back Slash (barra invertida, º, ª)");
+        break;
+        case 221: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Cerrar parentesis \n (abrir exclamación en teclado español)");
+        break;
+        case 222: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Single Quote (Acento)");
+        break;
+        case 226: 
+            alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Menor que (<)");
+        break;
+
+        default: alert("Tipo de evento: " + event.type + "\n keyCode: " + event.keyCode + " - Desconocido");
+    }   
+}
+
+</script>
+
+<!-- ____________________ Final javascript _________________________ -->
+
+</head>
+
+<!-- ___________________________ HTML ______________________________ -->
+
+<!-- Dentro de la etiqueta body se llama a la función -->
+<body onkeydown="javascript:test(event);">
+<h3>Pulsa una tecla para saber su código <br/>Nota:<br/> "keyCode" sólo en teclados ingleses <br/> "charCode" para todos los teclados</h3>
+<p>"keyCode" en ventana emergente (prompt)</p>
+<p>"charCode" escrito en pantalla</p>
+<p>Para obtener el charCode de una tecla que necesite combinación de "shift" + una segunda tecla:<br/> Pulsa "shift", sin soltarla acepta el prompt, y luego pulsa la 2ª tecla</p>
+
+
+    
+</body>
+</html>

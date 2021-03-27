@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu emergente</title>
+    <!-- <link rel="styleshnombret" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+ 
+<style type="text/css">
+
+	body{
+		margin: 0;
+		padding: 0;
+	}
+	
+	
+	#caja{
+		width: 950px;
+		margin: 0;
+		height:auto;
+	}
+
+		#caja li{
+			display:inline-block;
+			padding:10px 30px 0 0;
+		}
+		
+			#caja li a{
+				color:#333;
+				text-decoration:none;
+			}
+
+	#subMenuInicio{
+		width:60px;
+		height:100px;
+		background-color:#ff0;
+		padding:10px 0 0 10px;
+		position:absolute;
+		left:30px;
+		top:60px;
+	}
+
+	#subMenuQue{
+		width:50px;
+		height:100px;
+		background-color:#ff0;
+		padding:10px 0 0 10px;
+		position:absolute;
+		left:110px;
+		top:60px;
+	}
+
+	#subMenuQuien{
+		width:60px;
+		height:100px;
+		background-color:#ff0;
+		padding:10px 0 0 10px;
+		position:absolute;
+		left:180px;
+		top:63px;
+	}
+
+	#subMenuDonde{
+		width:70px;
+		height:100px;
+		background-color:#ff0;
+		padding:10px 0 0 10px;
+		position:absolute;
+		left:260px;
+		top:60px;
+	}
+
+	#subMenuContacta{
+		width:80px;
+		height:100px;
+		background-color:#ff0;
+		padding:10px 0 0 10px;
+		position:absolute;
+		left:360px;
+		top:60px;
+	}
+
+
+	.oculto{ 
+		display:none;
+	}
+
+	.visible{ 
+		display:inline;
+	}
+			
+</style>
+
+</head>
+<body>
+
+    
+<!-- ________________________ javascript____________________________ -->
+    
+<script type="text/javascript"> 
+
+	function menuEmergente(objeto){
+		
+		var subMenu = "sub" + objeto.getAttribute("name");
+		var emer = document.getElementById(subMenu);
+		
+		
+		if(subMenu == "subMenuInicio"){
+			if(emer.getAttribute("class") == "oculto"){
+				emer.setAttribute("class","visible");
+			}else{
+				emer.setAttribute("class","oculto");	
+			}
+			document.getElementById("subMenuQue").setAttribute("class","oculto");
+			document.getElementById("subMenuQuien").setAttribute("class","oculto");
+			document.getElementById("subMenuDonde").setAttribute("class","oculto");
+			document.getElementById("subMenuContacta").setAttribute("class","oculto");
+		}
+		
+		
+		if(subMenu == "subMenuQue"){
+			if(emer.getAttribute("class") == "oculto"){
+				emer.setAttribute("class","visible");
+			}else{
+				emer.setAttribute("class","oculto");	
+			}
+			document.getElementById("subMenuInicio").setAttribute("class","oculto");
+			document.getElementById("subMenuQuien").setAttribute("class","oculto");
+			document.getElementById("subMenuDonde").setAttribute("class","oculto");
+			document.getElementById("subMenuContacta").setAttribute("class","oculto");
+		}
+		
+		
+		if(subMenu == "subMenuQuien"){
+			if(emer.getAttribute("class") == "oculto"){
+				emer.setAttribute("class","visible");
+			}else{
+				emer.setAttribute("class","oculto");	
+			}
+			document.getElementById("subMenuQue").setAttribute("class","oculto");
+			document.getElementById("subMenuInicio").setAttribute("class","oculto");
+			document.getElementById("subMenuDonde").setAttribute("class","oculto");
+			document.getElementById("subMenuContacta").setAttribute("class","oculto");
+		}
+		
+		
+		if(subMenu == "subMenuDonde"){
+			if(emer.getAttribute("class") == "oculto"){
+				emer.setAttribute("class","visible");
+			}else{
+				emer.setAttribute("class","oculto");	
+			}
+			document.getElementById("subMenuQue").setAttribute("class","oculto");
+			document.getElementById("subMenuQuien").setAttribute("class","oculto");
+			document.getElementById("subMenuInicio").setAttribute("class","oculto");
+			document.getElementById("subMenuContacta").setAttribute("class","oculto");
+		}
+		
+		
+		if(subMenu == "subMenuContacta"){
+			if(emer.getAttribute("class") == "oculto"){
+				emer.setAttribute("class","visible");
+			}else{
+				emer.setAttribute("class","oculto");	
+			}
+			document.getElementById("subMenuQue").setAttribute("class","oculto");
+			document.getElementById("subMenuQuien").setAttribute("class","oculto");
+			document.getElementById("subMenuDonde").setAttribute("class","oculto");
+			document.getElementById("subMenuInicio").setAttribute("class","oculto");
+		}
+		
+	}
+
+	function ocultarMenu(objeto){
+		objeto.setAttribute("class","oculto");
+	}
+	
+
+</script>
+
+
+<!-- ____________________ Final javascript _________________________ -->
+
+<!-- ___________________________ HTML ______________________________ -->
+
+<div id="caja">
+                        
+    <ul>
+		<li>
+        	<a id="menuInicio" name="MenuInicio" href="" onmouseover="menuEmergente(this)" onclick="ocultarMenu2"(this)>INICIO</a>
+		</li>
+		<li>
+        	<a id="menuQue" name="MenuQue" href="" onmouseover="menuEmergente(this)">QUE</a>
+		</li>
+		<li>
+        	<a id="menuQuien" name="MenuQuien" href="" onmouseover="menuEmergente(this)">QUIEN</a>
+		</li>
+		<li>
+        	<a id="menuDonde" name="MenuDonde" href="" onmouseover="menuEmergente(this)">DONDE</a>
+		</li>
+		<li>
+        	<a id="menuContacta" name="MenuContacta" href="" onmouseover="menuEmergente(this)">CONTACTA</a>
+		</li>
+    </ul>
+
+	<div id="subMenuInicio" class="oculto" onclick="ocultarMenu(this)">
+		<a href="">Inicio 1</a> <br/>
+		<a href="">Inicio 2</a> <br/>
+		<a href="">Inicio 3</a> <br/>
+		<a href="">Inicio 4</a> <br/>
+	</div>
+                    
+	<div id="subMenuQue" class="oculto" onclick="ocultarMenu(this)">
+		<a href="">Que 1</a> <br/>
+		<a href="">Que 2</a> <br/>
+		<a href="">Que 3</a> <br/>
+		<a href="">Que 4</a> <br/>
+	</div>
+                    
+	<div id="subMenuQuien" class="oculto" onclick="ocultarMenu(this)">
+		<a href="">Quien 1</a> <br/>
+		<a href="">Quien 2</a> <br/>
+		<a href="">Quien 3</a> <br/>
+		<a href="">Quien 4</a> <br/>
+	</div>
+                    
+	<div id="subMenuDonde" class="oculto" onclick="ocultarMenu(this)">
+		<a href="">Donde 1</a> <br/>
+		<a href="">Donde 2</a> <br/>
+		<a href="">Donde 3</a> <br/>
+		<a href="">Donde 4</a> <br/>
+	</div>
+                    
+	<div id="subMenuContacta" class="oculto" onclick="ocultarMenu(this)">
+		<a href="">Contacta 1</a> <br/>
+		<a href="">Contacta 2</a> <br/>
+		<a href="">Contacta 3</a> <br/>
+		<a href="">Contacta 4</a> <br/>
+	</div>
+					
+</div> 
+
+
+
+
+</body>
+</html>

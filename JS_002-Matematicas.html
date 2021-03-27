@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematicas</title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+
+    
+    <script type="text/javascript"> 
+
+    
+    var lado = prompt ("Ingrese el lado de un cuadrado" , "");
+    var lado = parseFloat(lado);     
+    // parseInt toma la parte entera del número. Los decimales los ignora.
+    // con parseFloat te aseguras que es un número con posibles decimales.
+
+    var area = Math.pow(lado, 2).toFixed(2);
+    var perimetro = (lado*4).toFixed(2);
+
+    // numero.toFixed(2) --> me da dos decimales.
+
+    /**Nota: si pongo var area = lado^2 me dá como resultado unas veces lado + 2; Otras veces lado - 2. no lo entiendo..
+    
+    Hay que usar las funciones:
+    
+    - Math.round --> Redondea
+    - Math.abs(x) --> Valor absoluto
+    - Math.pow(x, y) --> potencias x^y.
+    - Math.sign(-x) --> devuelve 1 ó -1 si es positivo o negativo
+     ver en internet todas las funciones que existen
+
+    */
+
+    document.write("<br/> El área del cuadrado es  " + area + "<br/> El perímetro del cuadrado es " + perimetro);
+      
+    
+    </script>
+
+    
+</body>
+</html>

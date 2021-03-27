@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+
+    
+<!-- ________________________ javascript____________________________ -->
+    
+<script type="text/javascript"> 
+
+// Función activada mediante pulsación de un botón. (onclick) 
+// Mediante mensajes "alerts", va aumentando el contador
+var contador=0
+function incrementar(){
+	contador ++;	
+	alert(contador);
+}
+
+
+
+
+
+window.onload = function(){
+    var elemento = document.getElementById('precio');
+    actualizaValor(elemento);
+}
+
+function actualizaValor(elem){
+	var precio = elem.value;
+    var texto = document.getElementById('valordelprecio');
+    texto.innerHTML = parseFloat(precio) + '€';
+}
+
+
+
+
+
+
+
+
+
+
+
+// Mostrar en un alert las entradas de varios imputs
+function mostrar(){
+
+// Vamos a crear unas variables buscando en el formulario de esta forma:
+// En el documento hay un formulario form = "xxx" 
+// con una etiqueta llamada name = "yyy" 
+// cuyo valor es value = "zzz"
+	var nombre = document.formulario_02.nombre.value;
+	var edad = document.formulario_02.edad.value;	
+	alert("Ud. se llama: " + nombre +" y tiene " + edad +" años");	
+}
+
+
+// Validar longitud de contraseña en un imput
+function validar(){	
+// Si dentro del "formulario_03", el imput llamado "password"
+// tiene un valor ("value") menor a 5.... Limpia el input: (value= "")
+// En caso contrario.... vuelve a limpiar el input (value = "")
+	if(document.formulario_03.password.value.length < 5){		
+		alert("He dicho al menos 5 caracteres!!! ");		
+		document.formulario_03.password.value="";		
+	}else{        		
+		alert("Enhorabuena!! No se olvide de su clave.. ");		
+		document.formulario_03.password.value="";		
+    }	
+}
+
+
+// Mostrar en un imput valores intrinsecos a un select
+function cambiarColor(){	
+// Dentro del "formulario_04", hay un select llamado "colores" con n opciones
+// tiene seleccionado un "selectedIndex" = 0, 1, 2, 3, ..., n-1
+// Se comporta como un Array option = [0, 1, 2, 3, ..., n-1]
+// Los parametros de cada "option" son "option[0, 1, 2, 3, ..., n-1].name"
+	var indice = document.formulario_04.colores.selectedIndex;	// 0, 1, 2, 3,.., n-1
+	document.formulario_04.indice.value = indice;	
+    document.formulario_04.texto.value = document.formulario_04.colores.options[indice].text;
+	document.formulario_04.valor.value = document.formulario_04.colores.options[indice].value;
+// <option value="0000FF">Azul</option> --> options[n].text=Azul; options[n].value=0000FF.
+}
+
+
+// function contarSeleccionados(){
+// 	var cant=0;	
+// 	if(document.formulario_05.leng1.checked){
+// 		cant++;
+// 	}	
+// 	if(document.formulario_05.leng2.checked){
+// 		cant++;
+// 	}	
+// 	if(document.formulario_05.leng3.checked){
+// 		cant++;
+// 	}	
+// 	alert("Usted ha seleccionado " + cant + " lenguajes de programación.");
+// }
+
+// function escribirEnImput(){
+//     var lenguajes = "";
+// 	if(document.formulario_05.leng1.checked){
+// 		lenguajes = lenguajes + document.formulario_05.leng1.value + " ";
+// 	}	
+// 	if(document.formulario_05.leng2.checked){
+// 		lenguajes = lenguajes + document.formulario_05.leng2.value + " ";
+// 	}	
+// 	if(document.formulario_05.leng3.checked){
+// 		lenguajes = lenguajes + document.formulario_05.leng3.value;
+// 	}		
+//     document.formulario_05.seleccionados.value = lenguajes;
+// }
+
+
+// Mismo efecto que el anterior. Ahora he cconsiderado que es un Array
+// he llamado a todos igual (leng) y para diferenciarlos: leng[n] (n = 0,1,2...)
+function contarSeleccionados(){
+	var cant=0;	
+	if(document.formulario_05.leng[0].checked){
+		cant++;
+	}	
+	if(document.formulario_05.leng[1].checked){
+		cant++;
+	}	
+	if(document.formulario_05.leng[2].checked){
+		cant++;
+	}	
+	alert("Usted ha seleccionado " + cant + " lenguajes de programación.");
+}
+
+function escribirEnImput(){
+    var lenguajes = "";
+	if(document.formulario_05.leng[0].checked){
+		lenguajes = lenguajes + document.formulario_05.leng[0].value + " ";
+	}	
+	if(document.formulario_05.leng[1].checked){
+		lenguajes = lenguajes + document.formulario_05.leng[1].value + " ";
+	}	
+	if(document.formulario_05.leng[2].checked){
+		lenguajes = lenguajes + document.formulario_05.leng[2].value;
+	}		
+    document.formulario_05.seleccionados.value = lenguajes;
+}
+
+
+function mostrarSeleccionado(){
+	// estudios es un Array de 4 elementos
+	if(document.formulario_06.estudios[0].checked){		
+		alert("Usted no tiene estudios");	
+	}else if(document.formulario_06.estudios[1].checked){		
+		alert("Usted tiene estudios primarios");		
+	}else if(document.formulario_06.estudios[2].checked){		
+		alert("Usted tiene estudios secundarios");		
+	}else if(document.formulario_06.estudios[3].checked){		
+		alert("Usted tiene " + document.formulario.estudios[3].value);		
+	}else{
+		alert("Seleccione una opción");
+	}
+}
+
+
+</script>
+
+<!-- ____________________ Final javascript _________________________ -->
+
+<!-- ___________________________ HTML ______________________________ -->
+
+<h2>Botón contador en un alert:</h2>
+<form name="formulario_01">
+	<input type="button" value="Incrementar" onclick="incrementar()"/>
+</form>
+
+<br/><br/><br/>
+    
+<h2>Barra de precios:</h2>
+<form name="formulario_22">
+<label for="precio">Precio:</label>
+<input type="range" name="precio" id="precio" size="150px" min="5" max="20" step="1" value="10" onchange="actualizaValor(this);"/>
+<label id="valordelprecio"></label></br>
+</form>
+
+
+<br/><br/><br/>
+
+<h2>Mostrar entradas en un alert:</h2>
+<form name="formulario_02">	
+    <label for="nombre"> Ingrese su nombre </label>
+    <input type="text" name="nombre" id="nombre" /> <br/><br/>
+    <label for="edad"> Ingrese su edad </label>
+    <input type="text" name="edad" id="edad" /> <br/><br/>
+    <input type="button" value="Ver resultado" onclick="mostrar()" />      
+</form>
+    
+<br/><br/><br/>
+
+<h2>Validación de longitud contraseña:</h2>
+<form name="formulario_03">
+    <label for="pass"> Ingrese su clave (al menos 5 caracteres):  </label>
+    <input type="password" name="password" id="pass" /> <br/><br/>
+    <input type="button" value="Enviar" onclick="validar()" />  
+</form>
+    
+<br/><br/><br/>
+
+<h2>Cambio de colores:</h2>
+<form name="formulario_04">
+	
+    <select size="1" name="colores" onchange="cambiarColor()"> 
+        <option value=""> </option>  
+    	<option value="FF0000">Rojo</option> 
+        <option value="00FF00">Verde</option> 
+        <option value="0000FF">Azul</option> 
+    </select><br/>
+
+    <label for="indice"> Número de índice seleccionado del objeto SELECT:  </label><br/>
+    <input type="text" name="indice" id="indice" /><br/>
+
+    <label for="text"> Texto seleccionado:  </label><br/>
+    <input type="text" name="texto" id="texto" /><br/>
+
+    <label for="valor"> Valor asociado:  </label><br/>
+    <input type="text" name="valor" id="valor" />
+    
+</form>
+    
+<br/><br/><br/>
+
+<!-- <h2>checkbox seleccionados - Nº de lenguajes onclick:</h2>
+<form name="formulario_05">	
+    
+    <input type="checkbox" name="leng1" value="Javascript" onchange="escribirEnImput()"/> 
+    <label for="leng1" name="leng1"> Javascript  </label> <br/>
+
+    <input type="checkbox" name="leng2" value = "PHP" onchange="escribirEnImput()"/> 
+    <label for="leng2" name="leng2"> PHP  </label> <br/>
+
+    <input type="checkbox" name="leng3" value="Phyton" onchange="escribirEnImput()"/> 
+    <label for="leng3" name="leng3"> Phyton  </label> <br/><br/>
+
+    <label for="seleccionados"> Seleccionados:  </label><br/>
+    <input type="text" name="seleccionados"/> <br/><br/>
+
+    <input type="button" value="mostrar" onclick="contarSeleccionados()"/> 
+
+</form> -->
+
+<h2>checkbox seleccionados - Nº de lenguajes onclick:</h2>
+<form name="formulario_05">	
+    
+    <input type="checkbox" name="leng" value="Javascript" onchange="escribirEnImput()"/> 
+    <label for="leng1" name="leng"> Javascript  </label> <br/>
+
+    <input type="checkbox" name="leng" value = "PHP" onchange="escribirEnImput()"/> 
+    <label for="leng2" name="leng"> PHP  </label> <br/>
+
+    <input type="checkbox" name="leng" value="Phyton" onchange="escribirEnImput()"/> 
+    <label for="leng3" name="leng"> Phyton  </label> <br/><br/>
+
+    <label for="seleccionados"> Seleccionados:  </label><br/>
+    <input type="text" name="seleccionados"/> <br/><br/>
+
+    <input type="button" value="mostrar" onclick="contarSeleccionados()"/> 
+
+</form>
+    
+<br/><br/><br/>
+
+
+
+<h2>checkbox radio:</h2>
+<form name="formulario_06">	
+    
+    <input type="radio" id="est1" name="estudios" value="Sin estudios"/> 
+    <label for="est1"> Sin estudios  </label> <br/>
+
+   	<input type="radio" id="est2" name="estudios" value="Estudios Primarios"/> 
+    <label for="est2"> Estudios Primarios  </label> <br/>
+
+   	<input type="radio" id="est3" name="estudios" value="Estudios Secundarios"/> 
+    <label for="est3"> Estudios Secundarios  </label> <br/>
+
+   	<input type="radio" id="est4" name="estudios" value="Estudios Universitarios"/> 
+    <label for="est4"> Estudios Universitarios  </label> <br/><br/>
+
+    <input type="button" value="Mostrar" onclick="mostrarSeleccionado()"/> 
+    
+       
+</form>
+    
+<br/><br/><br/>
+
+
+
+
+</body>
+</html>

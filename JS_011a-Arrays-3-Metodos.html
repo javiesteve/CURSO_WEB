@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays 3 - Métodos </title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+
+<script type="text/javascript">  
+
+// Introducir elementos en un Array - forma manual y push()
+
+var meses = new Array();
+	
+// Introducimos manualmente los nombres: -----------------------
+
+	meses[0]= "Enero";
+	meses[1]= "Febrero";
+	meses[2] = "Marzo";
+
+
+
+// Método push(), unshift(), splice():  -----------------------
+meses.push("Abril", "Mayo","Junio", "Julio"); // añade al final
+meses.unshift("Martes");  // añade al principio
+meses.splice(2, 0, "Jueves", "Viernes") // A partir del elemento número, 2 borra 0 elementos, y añade "Jueves" y "Viernes"
+
+document.write(meses + "<br/>");
+// Resultado: Martes,Enero,Jueves,Viernes,Febrero,Marzo,Abril,Mayo,Junio,Julio
+console.log(meses);
+// Resultado: (10) ["Martes", "Enero", "Jueves", "Viernes", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"]
+
+
+
+//Juntar dos Arrays: -------------------------------------------
+ultimosMeses = ["Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+meses = meses.concat(ultimosMeses);
+document.write(meses + "<br/>");
+// Resultado: Martes,Enero,Jueves,Viernes,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre
+
+
+
+// Eliminar elementos. Método pop():  --------------------------
+
+meses.pop();  // Elimina el último elemento
+meses.shift();  // Elimina el primer elemento
+meses.splice(1, 2) // A partir del elenento número 1 borra 2 elementos
+document.write(meses + "<br/>");
+// Resultado: Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre
+
+meses.splice(-2) // A partir del elenento número 2, empezando por el final
+document.write(meses + "<br/>");
+// Resultado: Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre
+
+
+// Ordenar elementos. Método sort():  --------------------------
+
+meses.sort(); // ordena alfabeticamente
+document.write(meses + "<br/>");
+// Resultado: Abril,Agosto,Enero,Febrero,Julio,Junio,Marzo,Mayo,Septiembre
+
+
+
+// Invierte los elementos. Método reverse() -------------------
+
+meses.reverse();
+document.write(meses + "<br/>");
+// Resultado: Septiembre,Mayo,Marzo,Junio,Julio,Febrero,Enero,Agosto,Abril
+
+
+
+
+// Buscar un elemento. Método indexOf()  ---------------------
+
+document.write(meses.indexOf("Noviembre") + "<br/>");
+//Resultado: 2 (Recuerda que empieza por cero: 0,1,2)
+
+
+
+
+// Convertir un texto en un array con split() ----------------
+
+var texto = "Con 10 cañones por banda, viento en popa a toda vela";
+
+
+console.log(texto.split(" "));
+// Resultado: (11) ["Con", "10", "cañones", "por", "banda,", "viento", "en", "popa", "a", "toda", "vela"] (Obsérvese que el elemento banda contiene una coma)
+
+document.write(texto.split("") + "<br/>");
+//Resultado: C,o,n, ,1,0, ,c,a,ñ,o,n,e,s, ,p,o,r, ,b,a,n,d,a,,, ,v,i,e,n,t,o, ,e,n, ,p,o,p,a, ,a, ,t,o,d,a, ,v,e,l,a (hasta la coma del texto y los espacios ocupan una posición en el Array)
+
+console.log(texto.split(","));
+//Resultado: Con 10 cañones por banda, viento en popa a toda vela (En este caso la coma separa los dos elementos del Array)
+
+
+
+var textoSinComas = texto.split(", ");
+var textoArray = textoSinComas[0].split(" ").concat(textoSinComas[1].split(" "));
+console.log(textoArray);
+// He conseguido un array con todas las palabras y desechando los espacios y las comas:
+// (11) ["Con", "10", "cañones", "por", "banda", "viento", "en", "popa", "a", "toda", "vela"]
+
+</script>
+
+    
+</body>
+</html>

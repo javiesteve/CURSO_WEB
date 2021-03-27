@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>prompts "fin" para terminar</title>
+</head>
+
+<body>
+<script type="text/javascript">
+	
+	/* 1 – Ingresar una serie de nombres por teclado hasta que se ingrese la palabra Fin, y mostrar cuántos nombres se ingresaron.*/
+
+var nombre;
+var x=0;
+
+do{
+
+nombre = prompt("Ingrese un nombre, fin para finalizar","");
+
+	if (nombre.toLowerCase() != "fin" && nombre != ""){
+		x=x+1;
+		document.write(nombre + "<br/>");
+	};
+
+}while (nombre.toLowerCase() != "fin");
+
+document.write("<br/> El total de nombres escritos es: " + x);
+
+
+</script>
+</body>
+</html>

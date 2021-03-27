@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comienzos </title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+
+<style type="text/css">
+
+    #galeria01{
+        margin:0 auto;
+        text-align:center;
+    } 
+        
+    #galeria01 img{
+        /* width:280px;
+        height:210px; */
+        margin-top:20px;
+    } 
+        
+    #galeria01 #botones img{
+        width:120px;
+        height:40px;
+        border:none;
+    } 
+
+    #formulario {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #formulario #nombre, 
+    #formulario #comentario{
+        margin-top: 7px;
+    }
+        
+    #galeria01 span{
+        color:#444;
+        display:block;
+        font-family:Georgia;
+        font-size:18px;
+        /* letter-spacing:-1px; */
+        /* outline:1px solid #444; */
+        margin-left:5px;
+        padding:5px 0;
+    } 
+        
+    #galeria01 div a {
+        text-decoration: none;
+    } 
+    
+
+</style>
+
+   
+<!-- ________________________ javascript____________________________ -->
+    
+<script type="text/javascript"> 
+
+    // En esta ocasión realizamos un Array bidimensional
+    // Creamos nueva función para añadir fotos
+
+    var posicion = new Array();
+    posicion[0] = new Array();
+    posicion[1] = new Array();
+
+    posicion[0][0] = "001.jpg";
+    posicion[0][1] = "en el aeropuerto de Madrid";
+    posicion[1][0] = "002.jpg";
+    posicion[1][1] = "en el aeropuerto de Kathmandu";
+    
+    //console.log(posicion[0]);
+   
+    var posiciones = 1;
+    var posicionActual = 0;
+    
+    function mover(direccion){ 
+    
+        var ultimaPosicion = posicion.length - 1;
+        var siguientePosicion = posicionActual + direccion;
+
+        if(siguientePosicion < 0){ 
+            siguientePosicion = ultimaPosicion;
+        }
+
+        if(siguientePosicion > ultimaPosicion){
+            siguientePosicion = 0; 
+        }
+
+        posicionActual = siguientePosicion;
+
+        document.getElementById("imagen").src = "imagenes/" + posicion[posicionActual][0];
+        document.getElementById("leyenda").innerHTML = posicion[posicionActual][1]; 
+    }
+
+    
+
+    function agregarPosicion(){
+
+        var nuevaposicion = posicion.length;
+        var nombreFoto = document.formulario.nombre.value;
+        var elComentario = document.formulario.comentario.value;
+
+        var pepito = true;
+        for(f=0; f<posicion.length; f++){            
+            if (posicion[f][0] == nombreFoto){
+                pepito = false;   
+            }
+        }
+
+        if(pepito == false){
+            alert("Ese nombre de fotografía ya existe");
+        }else{
+            posicion[nuevaposicion] = new Array();       
+            posicion[nuevaposicion][0] = nombreFoto;
+            posicion[nuevaposicion][1] = elComentario;
+        }  
+    }
+
+
+
+</script>
+
+<!-- ____________________ Final javascript _________________________ -->
+
+</head>
+
+<!-- ___________________________ HTML ______________________________ -->
+
+
+<body>
+
+    <div id="galeria01">
+        <img  id="imagen" src="Imagenes/001.jpg" />
+        <span id="leyenda">en el aeropuerto de Madrid</span>
+        
+        <div id="botones">
+        <a href="javascript:mover(-1);">
+        <img src="Imagenes/anterior.png" alt="anterior" width="120" height="40"/>
+        </a>
+        <a href="javascript:mover(1);"> 
+        <img src="Imagenes/siguiente.png" alt="siguiente" width="120" height="40"/> 
+        </a>
+        </div>
+    </div>
+
+    
+    <form name="formulario" id="formulario">
+
+	    <h3>Añadir más fotos a la galería</h3>
+
+        <label for="nombre"> Nombre de la foto (nombre.jpg): </label><br/>
+        <input type="nombre" name="nombre" id="nombre" value="003.jpg"/><br/><br/>
+
+        <label for="comentario"> Comentario: </label><br/>
+        <input type="comentario" name="comentario" id="comentario" value="En una vieja escuela"/><br/><br/>
+
+        <button type="button" value="Enviar" onclick="agregarPosicion()">Añadir foto</button>
+
+        
+    </form>
+    
+    
+</body>
+</html>

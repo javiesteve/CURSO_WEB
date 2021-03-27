@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comienzos </title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+
+    
+    <script type="text/javascript">  
+    
+    var color = prompt("Ingrese un color (Rojo, Verde o Azul): \nEnter a color (Red, Green or Blue): " , "");
+
+    color = color.toLowerCase(); // todo en minúsculas
+
+    switch (color){
+
+        case "rojo":
+        case "red": 
+        document.write("<h1 style='color:red';> red - rgb(255, 0, 0) - #ff0000</h1>");
+        break;
+
+        case "verde":
+        case "green": 
+        document.write("<h1 style='color:green';> green - rgb(0, 128, 0) - #008000</h1>");
+        break;
+
+        case "azul":
+        case "blue": 
+        document.write("<h1 style='color:blue';> blue - rgb(0, 0, 255) - #0000ff</h1>");
+        break;
+
+        // case "indianred": 
+        // document.write("<h1 style='color:IndianRed';> IndianRed - rgb(0, 0, 255) - #0000ff</h1>");
+        // break;
+
+        // case "lightcoral": 
+        // document.write("<h1 style='color:LightCoral';> LightCoral	#F08080	rgb(240, 128, 128) </h1>");
+        // break;
+
+        // case "salmon": 
+        // document.write("<h1 style='color:Salmon';> Salmon	#FA8072	rgb(250, 128, 114)</h1>");
+        // break;
+
+        // case "darksalmon": 
+        // document.write("<h1 style='color:DarkSalmon';> DarkSalmon	#E9967A	rgb(233, 150, 122)</h1>");
+        // break;
+
+        // case "lightsalmon": 
+        // document.write("<h1 style='color:LightSalmon';> LightSalmon	#FFA07A	rgb(255, 160, 122)</h1>");
+        // break;
+
+
+        
+        default: document.write("Sólo Rojo, Verde o Azul <br> Only Red, Green or Blue </br> <a href='https://htmlcolorcodes.com/es/nombres-de-los-colores/' target='_blank'>https://htmlcolorcodes.com/es/nombres-de-los-colores/</a>");
+        
+    }   
+
+    </script>
+
+    
+</body>
+</html>

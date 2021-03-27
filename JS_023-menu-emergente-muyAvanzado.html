@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu emergente</title>
+    <!-- <link rel="styleshnombret" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+ 
+	<style type="text/css">
+
+		body {
+			margin:25px; font:11px Verdana,Arial; background:#eee
+		}
+
+		ul.menu {
+			list-style:none; 
+			margin:0; 
+			padding:0
+		}
+
+		ul.menu * {
+			margin:0; 
+			padding:0
+		}
+
+		ul.menu a {
+			display:block; 
+			color:#000; 
+			text-decoration:none
+		}
+
+		ul.menu li {
+			position:relative; 
+			float:left; 
+			margin-right:2px
+		}
+
+		ul.menu ul {
+			position:absolute; 
+			top:26px; left:0; 
+			background:#d1d1d1; 
+			display:none; 
+			opacity:0; 
+			list-style:none
+		}
+
+		ul.menu ul li {
+			position:relative; 
+			border:1px solid #aaa; 
+			border-top:none; 
+			width:148px; 
+			margin:0
+		}
+
+		ul.menu ul li a {
+			display:block; 
+			padding:3px 7px 5px; 
+			background-color:#d1d1d1
+		}
+
+		ul.menu ul li a:hover {
+			background-color:#c5c5c5
+		}
+
+		ul.menu ul ul {
+			left:148px; 
+			top:-1px
+		}
+
+		ul.menu .menulink {
+			border:1px solid #aaa; 
+			padding:5px 7px 7px; 
+			font-weight:bold; 
+			background:url(imagenes/header.gif); 
+			width:134px
+		}
+
+		ul.menu .menulink:hover, ul.menu .menuhover {
+			background:url(imagenes/header_over.gif)
+		}
+
+		ul.menu .sub {
+			background:#d1d1d1 
+			url(imagenes/arrow.gif) 136px 8px no-repeat
+		}
+
+		ul.menu .topline {
+			border-top:1px solid #aaa
+		}
+
+</style>
+
+</head>
+<body>
+
+    
+<!-- ________________________ javascript____________________________ -->
+    
+<script type="text/javascript"> 
+
+var menu=function(){
+	var t=15,z=50,s=6,a;
+	function dd(n){this.n=n; this.h=[]; this.c=[]}
+	dd.prototype.init=function(p,c){
+		a=c; var w=document.getElementById(p), s=w.getElementsByTagName('ul'), l=s.length, i=0;
+		for(i;i<l;i++){
+			var h=s[i].parentNode; this.h[i]=h; this.c[i]=s[i];
+			h.onmouseover=new Function(this.n+'.st('+i+',true)');
+			h.onmouseout=new Function(this.n+'.st('+i+')');
+		}
+	}
+	dd.prototype.st=function(x,f){
+		var c=this.c[x], h=this.h[x], p=h.getElementsByTagName('a')[0];
+		clearInterval(c.t); c.style.overflow='hidden';
+		if(f){
+			p.className+=' '+a;
+			if(!c.mh){c.style.display='block'; c.style.height=''; c.mh=c.offsetHeight; c.style.height=0}
+			if(c.mh==c.offsetHeight){c.style.overflow='visible'}
+			else{c.style.zIndex=z; z++; c.t=setInterval(function(){sl(c,1)},t)}
+		}else{p.className=p.className.replace(a,''); c.t=setInterval(function(){sl(c,-1)},t)}
+	}
+	function sl(c,f){
+		var h=c.offsetHeight;
+		if((h<=0&&f!=1)||(h>=c.mh&&f==1)){
+			if(f==1){c.style.filter=''; c.style.opacity=1; c.style.overflow='visible'}
+			clearInterval(c.t); return
+		}
+		var d=(f==1)?Math.ceil((c.mh-h)/s):Math.ceil(h/s), o=h/c.mh;
+		c.style.opacity=o; c.style.filter='alpha(opacity='+(o*100)+')';
+		c.style.height=h+(d*f)+'px'
+	}
+	return{dd:dd}
+}();	
+
+</script>
+
+
+<!-- ____________________ Final javascript _________________________ -->
+
+<!-- ___________________________ HTML ______________________________ -->
+
+<ul class="menu" id="menu">
+	<li><a href="#" class="menulink">Dropdown One</a>
+		<ul>
+			<li><a href="#">Navigation Item 1</a></li>
+			<li>
+				<a href="#" class="sub">Navigation Item 2</a>
+				<ul>
+					<li class="topline"><a href="#">Navigation Item 1</a></li>
+					<li><a href="#">Navigation Item 2</a></li>
+					<li><a href="#">Navigation Item 3</a></li>
+					<li><a href="#">Navigation Item 4</a></li>
+					<li><a href="#">Navigation Item 5</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#" class="sub">Navigation Item 3</a>
+				<ul>
+					<li class="topline"><a href="#">Navigation Item 1</a></li>
+					<li><a href="#">Navigation Item 2</a></li>
+					<li>
+						<a href="#" class="sub">Navigation Item 3</a>
+						<ul>
+							<li class="topline"><a href="#">Navigation Item 1</a></li>
+							<li><a href="#">Navigation Item 2</a></li>
+							<li><a href="#">Navigation Item 3</a></li>
+							<li><a href="#">Navigation Item 4</a></li>
+							<li><a href="#">Navigation Item 5</a></li>
+							<li><a href="#">Navigation Item 6</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Navigation Item 4</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Navigation Item 4</a></li>
+			<li><a href="#">Navigation Item 5</a></li>
+		</ul>
+	</li>
+	<li><a href="#" class="menulink">Non-Dropdown</a></li>
+	<li>
+		<a href="#" class="menulink">Dropdown Two</a>
+		<ul>
+			<li><a href="#">Navigation Item 1</a></li>
+			<li>
+				<a href="#" class="sub">Navigation Item 2</a>
+				<ul>
+					<li class="topline"><a href="#">Navigation Item 1</a></li>
+					<li><a href="#">Navigation Item 2</a></li>
+					<li><a href="#">Navigation Item 3</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#" class="menulink">Dropdown Three</a>
+		<ul>
+			<li><a href="#">Navigation Item 1</a></li>
+			<li><a href="#">Navigation Item 2</a></li>
+			<li><a href="#">Navigation Item 3</a></li>
+			<li><a href="#">Navigation Item 4</a></li>
+			<li><a href="#">Navigation Item 5</a></li>
+			<li>
+				<a href="#" class="sub">Navigation Item 6</a>
+				<ul>
+					<li class="topline"><a href="#">Navigation Item 1</a></li>
+					<li><a href="#">Navigation Item 2</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Navigation Item 7</a></li>
+			<li><a href="#">Navigation Item 8</a></li>
+			<li><a href="#">Navigation Item 9</a></li>
+			<li><a href="#">Navigation Item 10</a></li>
+		</ul>
+	</li>
+</ul>
+
+<script type="text/javascript">
+	var menu=new menu.dd("menu");
+	menu.init("menu","menuhover");
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+
+    
+<!-- ________________________ javascript____________________________ -->
+    
+<script type="text/javascript"> 
+
+
+// Creamos un mensaje de errores. Al principio vacío:
+var mensaje = "";
+
+//verificar nombre: verificarLargo(nombre.value , 2, 24 , 'nombre');
+//verificar apellidos: verificarLargo(apellidos.value , 3 ,150 , 'apellidos');
+function verificarLargo( campo , minimo, maximo , nombreCampo){
+	  	
+		if(campo.length >= minimo && campo.length <= maximo ){
+			return true;
+		}else{
+			mensaje = mensaje + "\n El campo " + nombreCampo + " tiene que tener entre " + minimo + " y " + maximo + " caracteres.";	
+			return false;
+		}
+	
+}
+
+
+function validarDNI(dni) {
+    numero = dni.substr(0,dni.length-1);
+    let = dni.substr(dni.length-1,1);
+    numero = numero % 23;
+    letra='TRWAGMYFPDXBNJZSQVHLCKET';
+    letra=letra.substring(numero,numero+1);
+    if (letra!=let) {
+        mensaje = mensaje +  "\n Introduzca correctamente su DNI.";
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function validarEmail(valor) {
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(valor.value)){
+	return true;
+	} else {
+        mensaje = mensaje + "\n Introduzca correctamente su email.";
+	return false;
+	}
+}
+
+function verificarCP(valor){
+	var cp = /^[0-9]{5,5}$/;
+    
+	if(!cp.test(valor.value)){
+		mensaje = mensaje + "\n Introduzca correctamente su código postal.";
+	return false;
+	}else{
+	return true;
+    }	
+}
+
+
+
+
+
+
+function verificarFormulario(){
+    var valido      = true;	
+        
+    var nombre 		=  document.formulario.nom;
+    var apellidos 	=  document.formulario.ape;
+    var dni 		=  document.formulario.ni;
+    var email       =  document.formulario.mail;
+    var cp          =  document.formulario.codi;
+
+
+    // valido vale 1 ó 0 dependiendo de si es true o false
+    // 1   =    1   *   1, si es true; 0, si es false.
+    valido = valido *  verificarLargo(nombre.value , 2, 24 , 'nombre');
+    valido = valido *  verificarLargo(apellidos.value , 3 ,150 , 'apellidos');
+    valido = valido *  validarEmail(email);
+    valido = valido *  validarDNI(dni.value);
+    valido = valido *  verificarCP(cp);
+    /*verificarLargo(nif.value);
+    verificarLargo(fechaNac.value);*/
+
+    if(valido == false){
+		alert("INCIDENCIAS: " + mensaje);
+        mensaje = "";
+	}else{
+		alert('Bien todo funciona');	
+	}
+
+}
+
+
+
+
+// Cálculo de la letra de un DNI:
+function calcular() {
+		
+		var numero = document.formulario.DNI.value;
+        var cp = /^[0-9]{8,8}$/;
+    
+	if (cp.test(numero) == true){
+        // calcular el resto (redondeado) de un número dividido por 23
+        // var pepito = (parseInt(numero) / 23)%1;
+        // var juanito = pepito.toFixed(2).substr(2,2);
+        // alert (juanito);
+		// Se puede resumir en una sola línea:
+		posicion = numero % 23; // Resto del numero dividido por 23
+		letrasPosibles='TRWAGMYFPDXBNJZSQVHLCKET';// son 22 letras pero empieza a contar por 0
+		letra = letrasPosibles.substring(posicion,posicion+1);		
+		alert("La letra de tu DNI es: " + letra);	
+	}else{		
+		alert("Comprueba que tu DNI está bien escrito \nSi tiene menos de 8 cifras añade ceros al comienzo \n hata que tenga 8 cifras");	
+	}	
+}
+
+
+
+
+</script>
+
+<!-- ____________________ Final javascript _________________________ -->
+
+<!-- ___________________________ HTML ______________________________ -->
+
+<h2>Formulario de inscripción:</h2>
+
+<form  action="" method="post" enctype="text/plain" name="formulario">
+
+	<label for="nombre">Nombre</label>
+    <input type="text" name="nom" id="nombre" size="15"/>
+    <br/><br/>
+    
+    <label for="apellidos">Apellidos</label>
+    <input type="text" name="ape" id="apellidos" size="15"/>
+    <br/><br/>
+      
+    <label for="nif">NIF</label>
+    <input type="text" name="ni" id="nif" size="9" maxlength="9"/>
+    <br/><br/>
+    
+    <label for="email"> Ingrese su email </label>
+    <input type="text" name="mail" id="email" />
+    <br/><br/>
+    
+    <label for="cpostal">codigo postal</label>
+    <input type="text"  name="codi" id="cpostal" size="5"/>
+    <br/><br/>
+     
+
+<button type="reset">Borrar</button>
+<button type="button" value="Enviar" onclick="verificarFormulario()">Enviar</button>
+
+<br/><br/><br/><br/>
+
+<h2>Cálculo de la letra de un DNI:</h2>
+<label for="DNI"> Ingrese su DNI sin la letra: </label>
+<input type="text" name="DNI" size="10" id="DNI"/>
+<br/><br/>
+
+<button type="button" value="CalcularLetra" onclick="calcular()"> Calcular la letra  </button>
+
+
+
+</form>
+    
+<br/><br/><br/>
+
+
+
+
+</body>
+</html>

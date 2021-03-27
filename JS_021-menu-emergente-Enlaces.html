@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu emergente</title>
+    <!-- <link rel="styleshnombret" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+ 
+		<style type="text/css">
+
+			#envoltorio{
+    			border: 1px solid steelblue;
+				width:285px;
+				height:auto;
+				padding-top: 5px;
+			}
+
+			a {
+				text-decoration: none;
+				color: maroon;
+			}
+
+			#parrafo_lorem{
+				width: auto;
+				text-align: justify;
+				padding: 4px;
+			}
+
+			#menu_01{
+				float:left;
+				margin-left: 18px;
+			}
+			
+			#menu_02{
+				float:left;
+				margin-left: 36px;
+			}
+			
+			#menu_03{
+				float:left;
+				margin-left: 35px;
+			}
+
+			#items_01{
+				width:auto;
+				height:auto;
+				background-color:#ebe867;
+				padding:10px;
+				position:absolute;
+				top: 30px;
+				left:10px;
+			}
+
+			#items_02{
+				width:auto;
+				height:auto;
+				background-color:#ebe867;
+				padding:10px;
+				position:absolute;
+				top: 30px;
+				left:105px;
+			}
+
+			#items_03{
+				width:auto;
+				height:auto;
+				background-color:#ebe867;
+				padding:10px;
+				position:absolute;
+				top: 30px;
+				left:200px;
+			}
+
+			.oculto { 
+				display: none; 
+			}
+			
+			.visible {
+				 display: inline; 
+			}
+
+		</style>
+
+</head>
+<body>
+
+    
+<!-- ________________________ javascript____________________________ -->
+    
+<script type="text/javascript"> 
+
+	function menu_emergente(parametro){
+
+	/*	Una opción hubiera sido recibir, mediante el parámetro 'this',
+		el nombre del div "menu_01" y transformarlo en "submenu_1":
+
+		var subMenu = "sub" + objeto.getAttribute("name");
+		var emer = document.getElementById(subMenu);
+		
+		La opción que he preferido es recibir, según en que div estemos,
+		el string "items_01"; "items_02"; "items_03".... */
+
+
+
+		var emer = document.getElementById(parametro);
+		if(emer.getAttribute('class') == "oculto"){
+			emer.setAttribute("class","visible");
+		}else{
+			emer.setAttribute("class","oculto");
+		}
+	}
+
+
+	
+	function fuera_menu(parametro){
+		var emer = document.getElementById(parametro);
+		emer.setAttribute("class","oculto");
+	}
+
+</script>
+
+
+<!-- ____________________ Final javascript _________________________ -->
+
+<!-- ___________________________ HTML ______________________________ -->
+
+<div id="envoltorio">
+
+	<div id="menu_01" onmouseover="menu_emergente('items_01')" onmouseout="fuera_menu('items_01')"  >
+
+		<a href="#">Menu 01</a>
+
+		<div id="items_01" class="oculto">
+				<a href="#">Elemento 1</a>
+			<br /><a href="#">Elemento 2</a>
+			<br /><a href="#">Elemento 3</a>
+			<br /><a href="#">Elemento 4</a>
+		</div>
+
+	</div>
+
+	<div id="menu_02" onmouseover="menu_emergente('items_02')"  onmouseout="fuera_menu('items_02')" >
+
+		<a href="#">Menu 02</a>
+
+		<div id="items_02" class="oculto">
+				<a href="#">Elemento 5</a>
+			<br /><a href="#">Elemento 6</a>
+			<br /><a href="#">Elemento 7</a>
+			<br /><a href="#">Elemento 8</a>
+		</div>
+
+	</div>
+
+	<div id="menu_03" onmouseover="menu_emergente('items_03')"  onmouseout="fuera_menu('items_03')" >
+
+		<a href="#">Menu 03</a>
+
+		<div id="items_03" class="oculto">
+				<a href="#">Elemento a</a>
+			<br /><a href="#">Elemento b</a>
+			<br /><a href="#">Elemento c</a>
+			<br /><a href="#">Elemento d</a>
+		</div>
+
+	</div>
+
+	<div id="parrafo_lorem">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dolorum ex est quod necessitatibus facilis, voluptas placeat harum assumenda! Ut ea, deserunt sed enim molestiae cum repudiandae corporis est officia iste a architecto natus eaque veniam nemo? Sint perspiciatis sequi, aspernatur velit architecto id?
+	</p>
+
+</div>
+</div>
+
+
+</body>
+</html>

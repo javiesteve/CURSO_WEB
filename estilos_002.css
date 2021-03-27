@@ -1,0 +1,76 @@
+ *{
+    margin: 0;
+} 
+
+section{
+    /* margin:5em auto; 5em = 90px */
+    margin: auto;
+    padding: 10px 0 0 10px;
+    border: 2px dashed steelblue;
+    box-sizing: border-box; /*para que ocupe el height y el width asignados y no se le sumen borders y/o paddings*/
+    position: relative; /*POSICIONAMOS AL CONTENEDOR. Al dar posicion relativa al contenedor "padre", éste se convierte en el ancestro posicionado más cercano a las cajas "hijas"
+    
+    Resumen de posicionamiento:
+
+    relative: según su posición inicial.
+    absolute: según el ancestro más cercano que esté posicionado.
+    fixed: según la ventana de nuestro navegador.
+    
+    
+    
+    */
+}
+
+
+div{
+    margin:0 6px 10px 0;
+    padding: 0 10px;
+    width: 100px;
+    height: 100px;
+    background: #4a88f4;
+    color: #fff;
+    font-size: 30px;
+    border: 5px solid black;
+    box-sizing: border-box; /*para que ocupe el height y el width asignados y no se le sumen borders y/o paddings*/
+
+    float: left;
+    /* float: right; */
+    /* display: inline-block;  */
+    
+    /* Éste deja un margen de 3.9px. a la derecha como esto: (margin:0 4px 0 0;)
+    margin:0 -4px 0 0; Para contrarrestar el margen.
+    
+    Con float sabes que no hay mérgenes y tiene la ventaja que le puedes decir que cada div tenga un 33.33%, así se colocan de tres en tres. Pero si el tamaño de las cajas es diferente se te descoloca todo quedando espacios en blanco..
+    
+    vertical-align: top; Con esta propiedad se puede alinear todo arriba, si es que no lo hiciera por defecto.
+    */
+}
+
+.caja1{
+    background: #0f7718;
+}
+
+.caja2{
+    
+    /* position: absolute;
+    top: 0;
+    left: 200px;  */
+    height: 50px;
+
+}
+
+.caja3{
+    background: #884107;
+    width: 70px;
+    height: 70px;
+}
+
+.caja4{
+    background: radial-gradient(rgb(211, 152, 152) 0%, #7c041e 80%);
+    border-radius: 50%; /*una esfera con gradiente de color */
+
+}
+
+.caja5{
+    background: #9e449a;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById innerHTML</title>
+    <!-- <link rel="styleshnombret" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+
+    
+<!-- ________________________ javascript____________________________ -->
+    
+<script type="text/javascript"> 
+
+function cerrar(){		
+	window.close(); // también se puede escribir: window.close();	
+}
+
+
+function retroceder(){
+	alert("window.history.length = " + window.history.length + "\n (Historial de páginas abiertas)");
+	window.history.go(-1);
+	//window.history.forward(); en este caso no se puede poner (-2)
+	
+}
+
+
+document.write("<h3>Propiedades del objeto navigator:</h3>");
+document.write("appName: "       + navigator.appName        + "<br/>");
+document.write("appVersion:    " + navigator.appVersion     + "<br/>");
+document.write("cookieEnabled: " + navigator.cookieEnabled  + "<br/>");
+document.write("plugins instalados: "       + navigator.plugins.length + "<br/>"); 
+
+for (f=0; f<navigator.plugins.length; f++){
+	document.write(navigator.plugins[f].name + " (pluggin instalado)<br/>");
+}
+
+
+
+document.write("<h3>Propiedades del objeto SCREEN:</h3>");
+document.write("availHeight: " + screen.availHeight + " (altura disponible en la pantalla)<br/>");
+document.write("availWidth: " + screen.availWidth  + " (anchura disponible en la pantalla)<br/>");	
+document.write("height:      " + screen.height      + " (altura según resolucion de usuario)<br/>");
+document.write("width:       " + screen.width       + " (anchura según resolucion de usuario)<br/>");
+document.write("colorDepth:  " + screen.colorDepth  + " (profundidad de color)<br/>");
+
+document.write("alto interior de la ventana del navegador en este momento: " + window.innerHeight + "<br/>");
+document.write("ancho interior de la ventana del navegador en este momento: " + window.innerWidth + "<br/><br/>");
+	
+
+</script>
+
+
+<!-- ____________________ Final javascript _________________________ -->
+
+<!-- ___________________________ HTML ______________________________ -->
+
+
+<input type="button" onclick="cerrar()" value="Cerrar Pestaña recién abierta"/><br/>
+<p>(Botón válido solo si has abierto una nueva pestaña)</p>
+<br/>
+<a href="javascript:retroceder()"> VOLVER ATRAS</a>
+<p>(Enlace válido solo si te has movido en la misma pestaña)</p>
+
+</body>
+</html>

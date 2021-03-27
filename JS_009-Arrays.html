@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays </title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+
+
+	
+	
+    
+<script type="text/javascript">  
+	
+        var sueldos;
+        
+    var sueldos = new Array();
+        
+        sueldos[0]= 2500;
+        sueldos[1]= 2680;
+        sueldos[3] = 2000;
+        sueldos[4] = 1200;
+        sueldos[2] = 800; // Lo pongo desordenado
+        
+        for(f=0; f<sueldos.length; f++){            
+            document.write(sueldos[f] + ", ");        
+        } 
+
+    document.write("<br/>");
+        
+/* Resultado: 2500 , 2680 , 800 , 2000 , 1200 */
+
+var meses = new Array(12);
+	
+	meses[0]= "Enero";
+	meses[1]= "Febrero";
+	meses[2] = "Marzo";
+	meses[3] = "Abril";
+	meses[4] = "Mayo";
+	meses[5]= "Junio";
+	meses[6]= "Julio";
+	meses[7]= "Agosto";
+	meses[8]= "Septiembre";
+	meses[9]= "Octubre";
+	meses[10]= "Noviembre";
+	meses[11]= "Diciembre";
+	
+var dias = new Array(12);
+	
+	dias[0] = 31;
+	dias[1] = 28;
+	dias[2] = 31;
+	dias[3] = 30;
+	dias[4] = 31;
+	dias[5] = 30;
+	dias[6] = 31;
+	dias[7] = 31;
+	dias[8] = 30;
+	dias[9] = 31;
+	dias[10] = 30;
+	dias[11] = 31;
+	
+	function fechaNac(meses,dias){
+		var fecha = prompt("Ingrese el numero del mes en el que nacio","");
+		fecha=parseInt(fecha);
+		
+		document.write("Usted nació en " + meses[fecha-1]);
+		document.write("<br/>");
+		document.write("Tiene : "+ dias[fecha-1]+ " dias");
+	}
+	
+	fechaNac(meses,dias);
+
+    // Resultado (indicando 4, por ejemplo):
+    // Usted nació en abril
+    // Tiene 30 días
+	
+	
+/* Hay 3 formas de RECORRER UN ARRAY
+
+1- Mediante un BUCLE: _____________________________________
+
+	colores = ["rojo","verde","azul","amarillo","naranja"];
+
+	for(i=0; i<colores.length; i++){
+		document.write(colores[i]+", ");
+	}
+
+2- forEach: _______________________________________________
+
+	colores = ["rojo","verde","azul","amarillo","naranja"];
+
+	colores.forEach(element => {
+		document.write(element + (" "));
+	});
+
+	El mismo resultado sin la función forEach:
+	document.write(colores.join(", "));	
+
+	'join' añade una coma entre los elementos.
+	pero no funciona dentro de la función 'forEach'
+	No se por qué!!
+
+	Otra forma:
+	colores.forEach(function(colores, index){
+		document.write(`${index} => ${colores} <br/>`);
+	})
+
+	Resultado:
+	0 => rojo
+	1 => verde
+	2 => azul
+	3 => amarillo
+	4 => naranja
+
+	Otra forma con el mismo resultado:
+	colores.forEach(function(colores, index){
+		document.write(index + " => " + colores + "<br/>");
+	})
+
+3- Map: __________________________________________________
+
+	dias = [{num: 1, dia: "Lunes"},
+			{num: 2, dia: "Martes"},
+			{num: 3, dia: "Miércoles"},
+			{num: 4, dia: "Jueves"},
+			{num: 5, dia: "Viernes"},
+			{num: 6, dia: "Sábado"},
+			{num: 7, dia: "Domingo"}];
+
+	dias.map(function(dias){
+		document.write(dias.num + " => " + dias.dia + "<br/>");
+	});
+
+	Resultado:
+	1 => Lunes
+	2 => Martes
+	3 => Miércoles
+	4 => Jueves
+	2 => Viernes
+	3 => Sábado
+	4 => Domingo
+
+*/
+
+
+</script>
+
+    
+</body>
+</html>

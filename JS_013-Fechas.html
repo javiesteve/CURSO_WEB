@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas</title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+	
+    
+<script type="text/javascript"> 
+
+    var fecha = new Date();
+    document.write("Fecha y hora en mi ordenador:<br/>"+fecha);
+    //Resultado:
+    //Hora en mi ordenador:
+    //Mon Mar 08 2021 09:27:55 GMT+0100 (hora estándar de Europa central)
+
+    document.write("<br/><br/> Hoy es ");
+
+    switch (fecha.getDay()){ // Obtén el día de la semana
+    case 0: document.write("Domingo - "); break;
+    case 1: document.write("Lunes - "); break;
+    case 2: document.write("Martes - "); break;
+    case 3: document.write("Miércoles - "); break;
+    case 4: document.write("Jueves - "); break;
+    case 5: document.write("Viernes - "); break;
+    case 6: document.write("Sábado - "); break;
+    default: document.write("Error!");
+    }    
+
+    document.write(fecha.getDate() + "/"); // Día
+    document.write(fecha.getMonth()+1+"/"); // Mes + 1 (0,1,..)
+    document.write(fecha.getFullYear()); // Año completo
+    // El método getYear devuele los dos últimos digitos del año
+    document.write("<br/> Son las ");
+    document.write(fecha.getHours()+ ":"); // Horas
+    document.write(fecha.getMinutes()+":"); // Minutos
+    document.write(fecha.getSeconds()); // Segundos
+    document.write("<br/><br/>");
+    //Resultado:    Hoy es Lunes - 8/3/2021
+    //              Son las 9:43:11
+    // Nota: Las cifras que sólo son de un dígito 
+    // las podríamos poner con dos dígitos (08/03/2021) 
+    // con condicionales "if / else"  
+  
+    // Truco para no usar los condicionales:
+    document.write("Hoy es "+("0"+fecha.getDate()).slice(-2) + "/");
+    document.write(("0" + (fecha.getMonth() + 1)).slice(-2) + "/");
+    document.write(fecha.getFullYear() + "<br/><br/>");
+
+
+
+
+
+
+    
+    miFechaActual = new Date();
+    miFechaPasada1 = new Date(2018, 11, 31, 23, 29, 00); 
+    // Nota: mes: 11 es diciembre 0,1,..  (new Date(y, m ,d ,h ,min ,s ,ms))
+    // Valores negativos: 2018, -1 => Diciembre de 2017
+    miFechaPasada2a = new Date("2018/12/31 23:30:00 GMT+0100");
+    miFechaPasada2b = new Date("2018/12/31 23:30:00 GMT+0000");
+    miFechaPasada2c = new Date("2018/12/31 23:30:00");
+    // Nota: Al especificarle que es hora GTM+0000, cuando la imprimo en 
+    // pantalla me suma una hora. Porque mi ordenador es epañol (GTM+0100)
+    // (enero 2019 en vez de diciembre 2018)
+    // ¡CUIDADO! Ya que según en qué pais visites la web es diferente 
+    // Si no especifico nada (miFechaPasada2c) Lo toma como GTM+0100
+    // Supongo que es porque el servidor es mi ordenador (español)..
+    miFechaPasadaGtm = new Date(Date.UTC(2018, 11, 31, 23, 30, 00));
+    // Nota: Aquí especifico que es la hora UTC (GTM+0000). 
+    // Cuando lo imprimo en un ordenador español me suma una hora (enero 2019)
+    miFechaPasada3 = new Date(872817240000);  // UNIX timestamp 
+    // Milisegundos transcurridos desde 1/1/1970 - 00:00:00 GTM
+    // (En España Thu Jan 01 1970 01:00:00 GMT+0100)
+    origenTiempoUNIX = new Date(0);
+
+   
+    document.write("<br/>Mis fechas pasadas son:<br/>");
+    document.write("miFechaPasada1: "+miFechaPasada1 + "</br>");
+    document.write("miFechaPasada2a: "+miFechaPasada2a + "</br>");
+    document.write("miFechaPasada2b: "+miFechaPasada2b + "</br>");
+    document.write("miFechaPasada2c: "+miFechaPasada2c + "</br>");
+    document.write("miFechaPasadaGTM: "+miFechaPasadaGtm + "</br>");
+    document.write("miFechaPasada3: "+miFechaPasada3 + "</br>");
+    document.write("origenTiempoUNIX: "+origenTiempoUNIX + "</br><br/>");
+    // Mi fecha actual es:
+    // Mon Mar 08 2021 10:45:20 GMT+0100
+    // Mis fechas pasadas son:
+    // miFechaPasada1: Mon Dec 31 2018 23:29:00 GMT+0100 
+    // miFechaPasada2a: Mon Dec 31 2018 23:30:00 GMT+0100
+    // miFechaPasada2b: Tue Jan 01 2019 00:30:00 GMT+0100
+    // miFechaPasada2c: Mon Dec 31 2018 23:30:00 GMT+0100
+    // miFechaPasadaGTM: Tue Jan 01 2019 00:30:00 GMT+0100 
+    // miFechaPasada3: Fri Aug 29 1997 03:14:00 GMT+0200 
+    // origenTiempoUNIX: Thu Jan 01 1970 01:00:00 GMT+0100
+
+    // Cuando imprimo la fecha/hora GTM+0000 en un ordenador español me suma una hora. 
+    // (enero 2019 en vez de diciembre 2018)
+    // ¡CUIDADO! Ya que según en qué pais visites la web es diferente
+    // Es lógico. Me dice la hora que era aquí en ese momento determinado de Canarias
+    // En Canarias era (Dec 31 2018 23:30:00); En la península (Tue Jan 01 2019 00:30:00)
+
+    
+    document.write("Mis fechas pasadas en formato timestamp son:<br/>");
+    document.write("miFechaPasada1: "+Date.parse(miFechaPasada1)+ "</br>");
+    document.write("miFechaPasada2a: "+Date.parse(miFechaPasada2a)+ "</br>");
+    document.write("miFechaPasada2b: "+Date.parse(miFechaPasada2b)+ "</br>");
+    document.write("miFechaPasadaGtm: "+Date.parse(miFechaPasadaGtm)+ "</br></br>");
+    // miFechaPasada1:      1546295340000 (2018/12/31 23:29:00)
+    // miFechaPasada2a:     1546295400000 (2018/12/31 23:30:00)
+    // miFechaPasada2b:     1546299000000 (2019/01/01 00:30:00)
+    // miFechaPasadaGtm:    1546299000000 (2019/01/01 00:30:00)
+
+
+    document.write("la fecha actual en timestamp es: " + Date.parse(miFechaActual) + " ms <br/>");
+    document.write("Yo nací en timestamp: "+Date.parse("1970/09/17 03:00:00 GMT+0100")+" ms <br/>");
+    document.write("Número relativamente pequeño, ya que nací en 1970. <br/>");
+    document.write("(año considerado origen del tiempo UNIX) <br/><br/>");
+
+    // la fecha actual en timestamp es: 1615201518000 ms
+    // Yo nací en timestamp:              22384800000 ms
+    // Número relativamente pequeño, ya que nací en 1970.
+    // (año considerado origen del tiempo UNIX)
+
+
+    // Notas:
+    // Date.now()  es equivalente a +new Date() => Obtienen tiempo UNIX
+    // Date.parse("2018/12/31 23:30:00 GMT+0100")  es equivalente a +new Date("2018/12/31 23:30:00 GMT+0100")  => Obtienen tiempo UNIX
+
+    document.write("Un año completo en timestamp UNIX es: ");
+    document.write(+new Date("1971/01/01 00:00:00 GMT+000"));
+    document.write(" ms <br/>");
+    document.write("( 365 dias x 24 horas x 60 min x 60 seg x 1.000 ms )");
+    // Un año completo en timestamp UNIX es: 31536000000 ms
+    // ( 365 dias x 24 horas x 60 minutos x 60 segundos  x 1.000 milisegundos )
+    // ( 365        8.760 h     525.600 m   31.536.000 s   31.536.000.000 ms )
+
+
+
+
+</script>
+
+    
+</body>
+</html>

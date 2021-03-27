@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comienzos </title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+
+<style type="text/css">
+
+    #galeria01{
+        margin:0 auto;
+        text-align:center;
+    } 
+        
+    #galeria01 img{
+        /* width:280px;
+        height:210px; */
+        margin-top:20px;
+    } 
+        
+    #galeria01 #botones img{
+        width:120px;
+        height:40px;
+        border:none;
+    } 
+        
+    #galeria01 span{
+        color:#444;
+        display:block;
+        font-family:Georgia;
+        font-size:18px;
+        /* letter-spacing:-1px; */
+        /* outline:1px solid #444; */
+        margin-left:5px;
+        padding:5px 0;
+    } 
+        
+    #galeria01 div a {
+        text-decoration: none;
+    } 
+    
+
+</style>
+
+
+   
+<!-- ________________________ javascript____________________________ -->
+    
+<script type="text/javascript"> 
+
+    var foto = new Array();
+
+    foto[0] = "Imagenes/001.jpg";
+    foto[1] = "Imagenes/002.jpg";
+    foto[2] = "Imagenes/003.jpg";
+    foto[3] = "Imagenes/004.jpg";
+    foto[4] = "Imagenes/005.jpg";
+    foto[5] = "Imagenes/006.jpg";
+    foto[6] = "Imagenes/007.jpg";
+    foto[7] = "Imagenes/008.jpg";
+
+
+    var texto = new Array();
+    texto[0] = "en el aeropuerto de Madrid";
+    texto[1] = "en el aeropuerto de Kathmandu";
+    texto[2] = "una vieja escuela sin actividad";
+    texto[3] = "futuros alumnos";
+    texto[4] = "forma de vida";
+    texto[5] = "¡le sirven las gafas que llevamos!";
+    texto[6] = "el futuro está en los niños";
+    texto[7] = "la despedida..";
+
+
+    var fotoActual = 0;
+    
+    function mover(direccion){ 
+    // Si pulso siguiente direccion = 1, si pulso anterior direccion = -1
+
+        var ultimaFoto = foto.length - 1;
+        var siguienteFoto = fotoActual + direccion;// 0   +/-   1
+
+        if(siguienteFoto < 0){ 
+            siguienteFoto = ultimaFoto;
+        }
+
+        if(siguienteFoto > ultimaFoto){
+            siguienteFoto = 0; // Para que la siguiente sea la primera
+        }
+
+        fotoActual = siguienteFoto;
+
+        document.getElementById("imagen").src = foto[fotoActual];
+        document.getElementById("leyenda").innerHTML = texto[fotoActual]; 
+    }
+
+
+</script>
+
+<!-- ____________________ Final javascript _________________________ -->
+
+</head>
+
+<!-- ___________________________ HTML ______________________________ -->
+
+
+<body>
+
+    <div id="galeria01">
+        <img  id="imagen" src="Imagenes/001.jpg" />
+        <span id="leyenda">en el aeropuerto de Madrid</span>
+        
+        <div id="botones">
+        <a href="javascript:mover(-1);">
+        <img src="Imagenes/anterior.png" alt="anterior" width="120" height="40"/>
+        </a>
+        <a href="javascript:mover(1);"> 
+        <img src="Imagenes/siguiente.png" alt="siguiente" width="120" height="40"/> 
+        </a>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

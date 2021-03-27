@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays 2 </title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+
+<script type="text/javascript">  
+
+	/*Solicitar número de empleados; segun el número introducido solicitar el sueldo de cada empleado.
+	como resultado imprimir todod los sueldos y cuanto supone la suma de todod ellos*/
+		
+	//aquí empieza el programa. Solicito número de empleados:
+	var cantidad = parseInt(prompt("Cuantos empleados tiene",""));	
+
+	// Creo un Array con la cantidad especificada de elementos. De momento vacío
+	var sueldos = new Array(cantidad); 
+	
+	// Creo una función que introduzca los sueldos a cada empleado con el parametro sueldos, que es el nombre del Array, y tiene especificados cuantos elementos tiene (sueldos.length):
+
+	function cargar(sueldos){ 
+
+	// Recorremos el Array asignando valores a cada elemento
+			
+		for(f=0; f<sueldos.length; f++){			
+			var v = prompt("Ingrese su sueldo:","");
+			sueldos[f] = parseFloat(v);
+		}
+	}
+		
+	
+	// Creo una función que imprima los sueldos y calcule los gastos (la suma de todos los sueldos):
+
+	function calcularGastos(sueldos){
+			
+		document.write("Listado de sueldos: ");
+			
+		// Imprimo los sueldos utilizando un truco para separarlos con comas, ya que dentro de una función no funciona el separador de elementos 'join':	
+
+			document.write(sueldos[0]);
+
+			for(f=1; f<sueldos.length; f++){			
+				document.write("€, " + sueldos[f] );	
+			}	
+
+			document.write("€.<br/>");
+
+		// Mas sencillo: Se puede imprimir el Array (por defecto separados los elementos con comas) así:
+			document.write("Listado de sueldos: "+sueldos+"<br/>"); 
+
+		// Fuera de una función si que funciona el separador de elementos 'join'. Lo utilizamos así:
+			document.write("Listado de sueldos: "+sueldos.join("€ | ")+"€. <br/>");
+			
+
+
+		// Calculo la suma de todos los sueldos:
+		
+		var total = 0;
+
+		// Recorremos el Array sumando a la variable 'total' cada uno de los valores registrados.
+			
+			for(f=0; f<sueldos.length; f++){			
+				total = total + sueldos[f];			
+			}
+			
+		document.write("Total de gastos en sueldos: " + total +"€.");
+				
+	}		
+
+	// Una vez creadas las funciones las ejecutamos:
+		
+	cargar(sueldos);
+	calcularGastos(sueldos);
+
+
+
+</script>
+
+    
+</body>
+</html>

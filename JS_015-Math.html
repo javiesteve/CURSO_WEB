@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+	
+    
+<script type="text/javascript"> 
+
+// Numero aleatorio entre 1 y 10
+var num1 = Math.random();
+var num2 = num1*10;
+var num3 = parseInt(num1*10);
+var num4 = parseInt(num1*10)+1;
+// Math.random es un num aleatorio entre 0 y 1
+document.write("Resultado de Math.random(): " + num1 + "<br/>");
+document.write("Resltado Math.random() *10: " + num2 + "<br/>");
+document.write("parseInt(Math.random()*10): " + num3 + " (aleatorio entre 0 y 9)<br/>");
+document.write("Sumo 1 al resultado anterior: " + num4 + " (aleatorio entre 1 y 10)<br/><br/>");
+
+// Resultado de Math.random():      0.8590087344611919
+// Resltado Math.random() *10:      8.590087344611918
+// parseInt(Math.random()*10):      8 (aleatorio entre 0 y 9)
+// Sumo 1 al resultado anterior:    9 (aleatorio entre 1 y 10)
+
+
+
+// Redondeos:
+document.write("Redondeo de 4.5 = " + Math.round(4.5) + "<br/>"); //5
+document.write("Redondeo de 4.49 = " + Math.round(4.49) + "<br/>"); //4
+
+
+
+//Valor absoluto:
+document.write("Valor absoluto de -35.2 = " + Math.abs(-35.2) + "<br/><br/>"); //35.2
+
+
+
+//Funciones trigonométricas// PI/2 = 90º; PI = 180º; Circunf. = 2*Pi*R (Radianes)
+document.write(Math.PI/4 + " Radianes = Pi/4 = 45º<br/>"); // Pi/4 = 0.785398 = 45º
+document.write(Math.cos(Math.PI/4) + "<br/>");  //cos(45º) = 0.7071067811865476
+//Truco para redondear con 5 decimales:
+document.write(Math.round(Math.cos(Math.PI/4)*100000)/100000 +"<br/>"); //0.70711
+document.write(Math.sin(Math.PI/4) + "<br/>");  //sen(45º) = 0.7071067811865475
+document.write(Math.tan(Math.PI/4) + "<br/>"); //tan(45º) = 0.9999999999999999
+//Truco para redondear con 2 decimales:
+document.write(Math.round(Math.tan(Math.PI/4)*100)/100 +"<br/><br/>"); //tan(45º) = 1
+
+
+//Funciones trigonométricas inversas//
+document.write(Math.asin(0.7071067811865475) + "<br/>"); // 0.7853981633974482 Rad (45º)
+document.write(Math.acos(1) + "<br/>"); // 0
+document.write(Math.atan(1) + "<br/><br/>"); // 0.7853981633974482 Rad (45º)
+
+
+
+//Potencias, Raiz cuadrada, Exponenciales y logaritmos//
+document.write(Math.pow(2,3) + "<br/>"); // 2^3 = 8
+document.write(Math.sqrt(144) + "<br/>"); // 12
+
+document.write(Math.exp(0) + "<br/>"); // e^0 = 1
+document.write(Math.exp(1) + "<br/>"); // e^1 = 2.718281828459045
+
+document.write(Math.E + "<br/>"); // e = 2.718281828459045
+
+document.write(Math.log(0) + "<br/>");// log 0 = -infinity
+document.write(Math.log(1) + "<br/>");// log 1 = 0
+document.write(Math.log(-1) + "<br/>");// log -1 = NaN (out of range)
+
+document.write(Math.log(Math.E) + "<br/><br/>");// log e = 1
+
+
+
+// Redondeos
+document.write(Math.round(2.5) + "<br/>");// 3 (redondea por defecto)
+document.write(Math.round(-2.5) + "<br/>");// -2 (redondea por defecto)
+document.write(Math.round(2.51) + "<br/>");// 3 (redondea por defecto)
+
+document.write(Math.round(-2.51) + "<br/>");// -3 (redondea por lo alto)
+document.write(Math.round(-2.499) + "<br/>");// -2 (redondea por lo alto)
+document.write(Math.ceil(2.0001) + "<br/>");// 3 (redondea por lo alto)
+document.write(Math.ceil(-2.999) + "<br/>");// -2 (redondea por lo alto)
+
+document.write(Math.floor(-2.7) + "<br/><br/>");// -3 (redondea por lo bajo)
+
+
+
+
+
+// Retorna Mayor/Menor de los parámetros introducidos
+document.write(Math.max(5,7) + "<br/>");// 7
+document.write(Math.min(2,4) + "<br/>");// 2
+
+
+
+
+
+
+</script>
+
+    
+</body>
+</html>

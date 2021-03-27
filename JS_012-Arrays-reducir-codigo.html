@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays </title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+	
+    
+<script type="text/javascript">  
+
+
+//Programa que suma elementos:  -----------------------
+
+	// Mediante prompts cargar elementos del array
+	function cargarValores(numeros){
+	
+		for(f=0; f<numeros.length; f++){
+			var v = prompt('Ingrese el valor '+(f+1),'');
+			// Ventanas emergentes Ingrese valor 1, 2, 3,...
+			// Para el Valor 1 usamos f+1 (f empieza en 0)
+			numeros[f] = parseInt(v); // Vamos añadiendo elementos
+		}	
+		//return array; // Devuelve el Array con los elementos
+	}
+
+
+	function sumar(numeros){ //Ya vista. Suma los elementos
+		var suma = 0;
+		
+		for(f=0; f<numeros.length; f++){		
+		suma = suma + numeros[f];			
+		}
+	}
+
+// Las funciones requieren como parámetros unos números. 
+
+//var n = parseInt(prompt("Cuantos elementos quieres?",""));
+var caja = new Array(n); // "caja" es un Array con n huecos posibles (como si fuera una caja de botellines)
+
+//var cajaLlena = cargarValores(caja); // "cajaLlena" ya tiene los huecos completados
+
+//var sumaTotal = sumar(cajaLlena); //"sumaTotal es una variable numérica"
+//document.write(sumaTotal); // Damos la orden de escribir la variable, ya fuera de la función..
+
+
+
+
+
+// Programa Reducido:  -------------------------------------
+
+	function cargarValores(array){
+		var suma = 0;
+		for(f=0; f<array.length; f++){			
+			array[f] = parseInt( prompt('Ingrese el valor'+(f+1),''));
+			suma = suma + array[f];
+		}	
+		
+		//Después de recorrer el array escribe la variable "suma". En este caso dentro de la función:
+		document.write(suma);		
+	}
+	// En este caso el parámetro que solicita la función es un array 
+
+var n = parseInt(prompt("Cuantos elementos quieres?",""));
+cargarValores(new Array(n)); // Llamamos a una función que calcula la suma y escribe la respuesta, introduciendo en ella un array con n elementos.
+
+
+
+</script>
+
+    
+</body>
+</html>

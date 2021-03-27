@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+    <!-- <link rel="stylesheet" type="text/css" href="estilos_001.css"> -->
+    <!-- <script language="javascript" src="#" type="text/javascript"></script> -->
+</head>
+<body>
+	
+    
+<script type="text/javascript"> 
+
+var cadena = prompt("Ingrese una cadena de texto","");
+
+document.write("La cadena ingresada es: ");
+document.write(cadena + "<br/>");
+
+document.write("La cantidad de caracteres son: ");
+document.write(cadena.length + "<br/>");
+
+document.write("El primer caracter es: ");
+document.write(cadena.charAt(0) + "<br/>");
+
+document.write("Los primeros 3 caracteres son: ");
+document.write(cadena.substring(0,3) + "<br/>");
+
+if (cadena.indexOf("hola") != -1){
+	document.write("Se ingresó palabra hola" + "<br/>");
+}else{
+	document.write("No se ingresó la palabra hola" + "<br/>");
+}
+
+
+document.write("La cadena convertida a mayúsculas es: ");
+document.write(cadena.toUpperCase() + "<br/>");
+
+document.write("La cadena convertida a minúsculas es: ");
+document.write(cadena.toLowerCase() + "<br/>");
+
+
+
+</script>
+
+    
+</body>
+</html>
